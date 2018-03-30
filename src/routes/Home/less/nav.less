@@ -1,6 +1,6 @@
 @import './custom.less';
 
-@header: header0;
+@header: header1;
 .@{header} {
   height: 64px;
   background: @template-nav-bg-color;
@@ -25,25 +25,76 @@
   }
   &-nav {
     float: right;
-    margin-right: 4%;
     line-height: 64px;
     position: relative;
+    margin-right: 4%;
     & .ant-menu-horizontal {
       border-bottom-color: transparent;
     }
-    & .ant-menu {
+    .ant-menu {
       background: transparent;
       color: @template-text-color-light;
       line-height: 62px;
-      & li {
+      li {
         float: left;
         text-align: center;
-        width: 100px;
+        min-width: 100px;
+        i {
+          transition: none;
+        }
+      }
+      .ant-menu-sub {
+        background: #fff;
+        color: fade(#666, 75);
+        overflow: hidden;
+        li {
+          width: 100%;
+          padding: 0 20px;
+        }
+        &menu-title:hover {
+          color: inherit;
+        }
+      }
+      .ant-menu-vertical, .ant-menu-vertical .ant-menu-item {
+        border-right: none;
       }
     }
     & .ant-menu-horizontal > .ant-menu-item-active {
       color: @link-hover-color;
       border-bottom-color: @link-hover-color;
+
+    }
+  }
+  &-nav, &-phone-nav {
+    .ant-menu {
+      li i {
+        transition: none;
+      }
+    }
+    .help {
+      border-left: 1px solid fade(@line-color, 5) !important;
+      .anticon {
+        font-size: 16px;
+        vertical-align: middle;
+      }
+      span {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 12px;
+      }
+    }
+    .user {
+      font-size: 14px;
+      border-left: 1px solid fade(@line-color, 5) !important;
+      .img {
+        margin-left: 0;
+        img {
+          vertical-align: middle;
+        }
+      }
+      span {
+        margin-left: 10px;
+      }
     }
   }
 }
